@@ -1,12 +1,7 @@
 import Button from "../button/button.component";
-import {
-  ButtonsContainer,
-  CalculatorContainer,
-  ResultField,
-} from "./main.styles";
-import { useContext } from "react";
-import { CalculatorContext } from "../../context/calculator.context";
-import parse from "html-react-parser";
+import { ButtonsContainer, CalculatorContainer } from "./main.styles";
+
+import Result from "../result/result.component";
 
 const Main = () => {
   const symbols = [
@@ -17,12 +12,10 @@ const Main = () => {
     ["0", ".", "=", "-"],
   ];
 
-  const { output } = useContext(CalculatorContext);
-
   return (
     <CalculatorContainer>
       <ButtonsContainer>
-        <ResultField>{parse(output)}</ResultField>
+        <Result />
         {[].concat(...symbols).map((symbol) => (
           <Button symbol={symbol} key={symbol} />
         ))}

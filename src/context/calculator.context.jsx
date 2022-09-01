@@ -1,4 +1,4 @@
-const { createContext, useState, useEffect } = require("react");
+import { createContext, useState, useEffect } from "react";
 
 export const CalculatorContext = createContext({
   input: "0",
@@ -12,34 +12,8 @@ export const CalculatorProvider = ({ children }) => {
   const [output, setOutput] = useState("0");
 
   useEffect(() => {
-    const data = input.trim().split(" ");
-    console.log(data);
-    if (data.includes("=")) {
-      const a = parseFloat(data[0]);
-      const b = parseFloat(data[2]);
-      const operation = data[1];
-      let result = 0;
-      switch (operation) {
-        case "&divide;":
-          result = a / b;
-          break;
-        case "&times;":
-          result = a * b;
-          break;
-        case "+":
-          result = a + b;
-          break;
-        case "-":
-          result = a - b;
-          break;
-        default:
-          break;
-      }
-      console.log(result);
-      setOutput(result.toString());
-    } else {
-      setOutput(input);
-    }
+    
+    setOutput(input);
   }, [input]);
 
   const value = { input, output, setInput, setOutput };
