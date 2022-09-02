@@ -7,6 +7,8 @@ export const ResultField = styled.span`
     font-size: 1.5em;
     grid-column-start: span 4;
     border-style: solid;
-    border-color: grey;
+    border-color: #adadad;
     border-radius: 5px;
+    border-width: 1px;
+    background-color: white;
 `

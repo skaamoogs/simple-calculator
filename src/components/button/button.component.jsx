@@ -6,30 +6,16 @@ import parse from "html-react-parser";
 const Button = ({ symbol }) => {
   const { input, setInput } = useContext(CalculatorContext);
 
-  const onClickHandler = (event) => {
-    let newInput = input;
-    if (newInput[newInput.length - 1] === "=") {
-      newInput = "";
-    }
+  const onClickHandler = () => {
     if (symbol === "AC") {
-      newInput = "0";
-    } else {
-      if ("0123456789".includes(newInput[newInput.length - 1])) {
-        newInput += symbol;
-      } else {
-        if ("0123456789".includes(symbol)) {
-          newInput += symbol;
-        }
-      }
-      if (newInput === "") {
-        newInput = symbol;
-      }
+      setInput("");
+      return;
     }
-
-    if (newInput[0] === "0" && newInput.length > 1) {
-      newInput = newInput.slice(1);
+    if (input.slice(-1) === "=") {
+      setInput(symbol);
+      return;
     }
-    setInput(newInput);
+    setInput(input + symbol);
   };
 
   return (

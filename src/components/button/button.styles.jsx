@@ -6,4 +6,8 @@ export const ButtonStyles = styled.button`
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
+  :hover {
+    opacity: 0.8;
+  }
+
 `;
