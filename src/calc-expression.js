@@ -1,12 +1,14 @@
 export const formatExpression = (expression) => {
   const removeExtraDots = /(?<=\d*\.\d*)\./g;
   const removeExtraMath = /(?<=[^\d])[^\d.]/g;
+  const putZeroBeforeSign = /(?=^[^\d])/;
   const newExpression = expression
-    .replace(/&divide;/g, "/")
-    .replace(/&times;/g, "*")
-    .replace(removeExtraDots, "")
-    .replace(removeExtraMath, "")
-    .replace(/(?=^[^\d])/, "0");
+    .replace(/&divide;/g, "/") // replace divide sign code to "/"
+    .replace(/&times;/g, "*") // replace multiply sign code to "*"
+    .replace(removeExtraDots, "") // remove extra dots
+    .replace(removeExtraMath, "") // remove extra math signs
+    .replace(putZeroBeforeSign, "0"); 
+
   return newExpression;
 };
 
@@ -16,6 +18,7 @@ export const calculate = (expression) => {
     "*": { re: /[\d.]+\*[\d.]+/g, calc: (a, b) => a * b },
     "-": { re: /[\d.]+-[\d.]+/g, calc: (a, b) => a - b },
     "+": { re: /[\d.]+\+[\d.]+/g, calc: (a, b) => a + b },
+    "^": { re: /[\d.]+\^[\d.]+/g, calc: (a, b) => a ** b },
   };
   const calcAction = (expression, action) => {
     const operations = expression.match(actions[action].re);

@@ -3,7 +3,8 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(9, 43, 54);
+  background-color: black;
+  text-align: center;
 }
 
 code {

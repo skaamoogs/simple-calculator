@@ -15,8 +15,10 @@ const Button = ({ symbol }) => {
       setInput(symbol);
       return;
     }
+    
     setInput(input + symbol);
   };
+
 
   return (
     <ButtonStyles onClick={onClickHandler} id={symbol}>

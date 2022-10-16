@@ -1,18 +1,25 @@
 import styled from "styled-components";
 
 export const CalculatorContainer = styled.div`
-  min-width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+  width: 100%;
   margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 
 
 `;
 
 export const ButtonsContainer = styled.div`
   display: grid;
+  width: 400px;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2px;
+
 `;
+
+export const Footer = styled.footer`
+margin-top: 20px;
+  color: white;
+`
 
